@@ -1,5 +1,8 @@
 package web_controls;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
 public class DropDown {
 	
 	/**
