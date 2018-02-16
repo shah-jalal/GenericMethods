@@ -11,9 +11,8 @@ public class ExplicitWati {
 
 	private static WebDriver driver;
 	
-	public static void waitTillElementToBeClickable(WebElement element) {
-
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+	public static void waitTillElementToBeClickable(WebElement element, int seconds) {
+		WebDriverWait wait = new WebDriverWait(driver, seconds);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 
