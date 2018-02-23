@@ -1,7 +1,6 @@
 package synchronization;
 
-import java.util.concurrent.TimeUnit;
-
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,25 +8,53 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ExplicitWati {
 
-	private static WebDriver driver;
+	// TODO - Generic method to work with Explicit Wait
 	
-	public static void waitTillElementToBeClickable(WebElement element, int seconds) {
+	private WebDriver driver;
+	
+	public ExplicitWati(WebDriver driver) {
+		this.driver = driver;
+	}
+
+	public void waitTillElementToBeClickable(WebElement element, int seconds) {
 		WebDriverWait wait = new WebDriverWait(driver, seconds);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 
-	public static void waitTillElementFound(WebElement element, int seconds) {
+	public void waitTillElementFound(WebElement element, int seconds) {
 		WebDriverWait wait = new WebDriverWait(driver, seconds);
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 
-	public static void waitTillElementToBeSelected(WebElement element, int seconds) {
+	public void waitTillElementToBeSelected(WebElement element, int seconds) {
 		WebDriverWait wait = new WebDriverWait(driver, seconds);
 		wait.until(ExpectedConditions.elementToBeSelected(element));
 	}
 	
-	
-	
-	//TODO Will be added more.......functions
+	public WebElement waitForElement(By locator, int timeout) {
+		WebElement element = null;
+		try {
+			System.out.println("Wating for max:: " + timeout + " seconds for element to be visible");
+			WebDriverWait wait = new WebDriverWait(driver, timeout);
+			element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+			System.out.println("Element visible on the web page");
+		} catch (Exception e) {
+			System.out.println("Element not visible on the web page");
+		}
+		return element;
+	}
+
+	public void clickWhenReady(By locator, int timeout) {
+		WebElement element;
+		try {
+			System.out.println("Wating for max:: " + timeout + " seconds for element to be clickable");
+			WebDriverWait wait = new WebDriverWait(driver, timeout);
+			element = wait.until(ExpectedConditions.elementToBeClickable(locator));
+			element.click();
+			System.out.println("Element clicked on the web page");
+		} catch (Exception e) {
+			System.out.println("Element not clickable on the web page");
+		}
+	}
 	
 }

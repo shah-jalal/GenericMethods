@@ -5,14 +5,20 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 
 public class ImplicitWait {
+	
+	// TODO - Generic method to work with Implicit Wait
 
-	private static WebDriver driver;
+	private WebDriver driver;
+	
+	public ImplicitWait(WebDriver driver) {
+		this.driver = driver;
+	}
 
-	public static void waitTillPageLoad(int seconds) {
+	public void waitTillPageLoad(int seconds) {
 		driver.manage().timeouts().pageLoadTimeout(seconds, TimeUnit.SECONDS);
 	}
 
-	public static void waitTime(int seconds) {
+	public void waitTime(int seconds) {
 		driver.manage().timeouts().implicitlyWait(seconds, TimeUnit.SECONDS);
 
 	}
