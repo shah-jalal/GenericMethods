@@ -5,7 +5,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class DropDown {
 	
-	// TODO - Generic method to work with DropDown
+	// TODO - Generic methods to work with DropDown
 	
 	/**
 	 * Generic method to select by value from Select option
