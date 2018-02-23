@@ -6,13 +6,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ExplicitWati {
+public class ExplicitWait {
 
 	// TODO - Generic method to work with Explicit Wait
 	
 	private WebDriver driver;
 	
-	public ExplicitWati(WebDriver driver) {
+	public ExplicitWait(WebDriver driver) {
 		this.driver = driver;
 	}
 

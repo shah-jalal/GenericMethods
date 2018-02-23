@@ -6,26 +6,33 @@ import java.util.Set;
 import org.openqa.selenium.WebDriver;
 
 public class BrowserWindow {
+	
+	// TODO - Generic method to work with Multiple BrowserWindow
 
-	private static WebDriver driver;
+	private WebDriver driver;
+	
+	public BrowserWindow(WebDriver driver) {
+		this.driver = driver;
+	}
+	
 
-	public static void switchToNewWindow() {
-		Set s = driver.getWindowHandles();
-		Iterator itr = s.iterator();
-		String w1 = (String) itr.next();
-		String w2 = (String) itr.next();
+	public void switchToNewWindow() {
+		Set<String> s = driver.getWindowHandles();
+		Iterator<String> itr = s.iterator();
+		String w1 = itr.next();
+		String w2 = itr.next();
 		driver.switchTo().window(w2);
 	}
 
-	public static void switchToOldWindow() {
-		Set s = driver.getWindowHandles();
-		Iterator itr = s.iterator();
-		String w1 = (String) itr.next();
-		String w2 = (String) itr.next();
+	public void switchToOldWindow() {
+		Set<String> s = driver.getWindowHandles();
+		Iterator<String> itr = s.iterator();
+		String w1 = itr.next();
+		String w2 = itr.next();
 		driver.switchTo().window(w1);
 	}
 
-	public static void switchToParentWindow() {
+	public void switchToParentWindow() {
 		driver.switchTo().defaultContent();
 	}
 

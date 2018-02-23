@@ -6,6 +6,12 @@ import org.openqa.selenium.WebElement;
 
 public class Calendar {
 	
+	// TODO - Generic method to work with DatePicker/Calendar
+	
+	public Calendar() {
+		
+	}
+	
 	/**
 	 * Generic method for select date from calendar using JavascriptExecutor
 	 * @param driver
