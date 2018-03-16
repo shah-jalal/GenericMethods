@@ -5,4 +5,4 @@ on a webpage is not so easy while automating using Selenium. In order to suppres
 all the methods which are useful for our project. So that we can call these methods wherever we need them. This would be so 
 simple to call these reusable methods.
 
-I just created these methods to make you understand, method names can be changed though :)
+I just created these methods to make you understand, just them in base class and extend base class in your existing class. Happy testing :-)
